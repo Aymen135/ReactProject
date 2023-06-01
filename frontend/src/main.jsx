@@ -10,6 +10,8 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import './index.css';
+import store from './store';
+import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomeScreen from './screens/HomeScreen';
 
@@ -24,7 +26,9 @@ const router = createBrowserRouter(
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  </Provider>
 );
